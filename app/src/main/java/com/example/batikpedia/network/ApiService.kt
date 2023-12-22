@@ -14,7 +14,19 @@ interface ApiService {
         @Path("pattern") pattern: String
     ): Call<Batik>
 
-    @GET("batik/all")
+    @GET("batik/all/")
     fun getAllBatikPattern(): Call<BatikResponse>
+
+    @GET("batik/all")
+    fun getProvinces(
+        @Query("province") query: String
+    ): Call<BatikResponse>
+
+//    @GET("search/users")
+//    @Headers("Authorization: token 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")
+//    fun searchUserGithub(
+//        @Query("province") query: String
+//    ): Call<UserResponse>
+
 
 }

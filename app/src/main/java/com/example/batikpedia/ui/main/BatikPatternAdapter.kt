@@ -3,6 +3,7 @@ package com.example.batikpedia.ui.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.batikpedia.R
 import com.example.batikpedia.data.model.Batik
 import com.example.batikpedia.databinding.ItemRvBinding
@@ -10,6 +11,8 @@ import com.example.batikpedia.databinding.ItemRvBinding
 class BatikPatternAdapter : RecyclerView.Adapter<BatikPatternAdapter.BatikPatternViewHolder>() {
 
     private val data = ArrayList<Batik>()
+
+//    val gambarBatik = listOf(R.drawable.batik_kawung, R.drawable.batik_megamendung, R.drawable.batik_parang, R.drawable.batik_sekarjagad, R.drawable.batik_tambal)
 
     fun set(users: List<Batik>) {
         data.clear()
@@ -32,7 +35,10 @@ class BatikPatternAdapter : RecyclerView.Adapter<BatikPatternAdapter.BatikPatter
             binding.apply {
                 namaBatik.text = batik.name
                 asalBatik.text = batik.province
-                imageView.setImageResource(R.drawable.ic_batik)
+                Glide.with(itemView)
+                    .load(batik.photos?.first())
+                    .centerCrop()
+                    .into(imageView)
             }
         }
     }

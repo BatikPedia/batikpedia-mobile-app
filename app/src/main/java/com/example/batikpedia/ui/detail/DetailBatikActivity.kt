@@ -1,8 +1,10 @@
 package com.example.batikpedia.ui.detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -19,9 +21,25 @@ class DetailBatikActivity : AppCompatActivity() {
         binding = DetailBatikActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val username = intent.getStringExtra(EXTRA_BATIK_NAME)
+        val nama = intent.getStringExtra(EXTRA_BATIK_NAME)
+        val desc = intent.getStringExtra(EXTRA_BATIK_DESC)
+        val prov = intent.getStringExtra(EXTRA_BATIK_PROV)
+        val photo = intent.getStringExtra(EXTRA_BATIK_PHOTO)
         val bundle = Bundle()
-        bundle.putString(EXTRA_BATIK_NAME, username)
+        bundle.putString(EXTRA_BATIK_NAME, nama)
+
+        binding.apply {
+            detailNamaBatik.text = nama
+            detailAsalBatik.text = prov
+            detaildeskBatik.text = desc
+            Glide.with(this@DetailBatikActivity)
+                .load(photo)
+                .centerCrop()
+                .into(binding.imageView)
+        }
+
+
+
 
 //        if (username != null) {
 //            viewModel.fetchGitHubUserDetail(username)
@@ -45,6 +63,9 @@ class DetailBatikActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_BATIK_NAME = "intent_batik"
+        const val EXTRA_BATIK_NAME = "intent_batik_name"
+        const val EXTRA_BATIK_PROV = "intent_batik_prov"
+        const val EXTRA_BATIK_DESC = "intent_batik_desc"
+        const val EXTRA_BATIK_PHOTO = "intent_batik_photo"
     }
 }

@@ -1,6 +1,10 @@
 package com.example.batikpedia.data.model
 
-data class BatikResponse (
-    val items: ArrayList<Batik>
+import com.google.gson.annotations.SerializedName
+
+data class BatikResponse(
+    @SerializedName("status") val status: Int,
+    @SerializedName("message") val message: String,
+    @SerializedName("data") val data:  ArrayList<Batik>
 )
 

@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/roundedImageView"
-        tools:srcCompat="@drawable/ic_batik" />
+        tools:srcCompat="@drawable/batik_megamendung" />
 
     <TextView
         android:id="@+id/namaBatik"

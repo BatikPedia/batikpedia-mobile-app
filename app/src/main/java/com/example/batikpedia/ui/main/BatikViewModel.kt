@@ -15,26 +15,27 @@ class BatikViewModel : ViewModel() {
 
     val listBatik = MutableLiveData<ArrayList<Batik>>()
 
+//    private val _batik = MutableLiveData<Batik>()
+//    val batik: LiveData<Batik> get() = _batik
+
     fun setBatikPattern(){
         ApiConfig.apiInstance.getAllBatikPattern().enqueue(object : Callback<BatikResponse>{
             override fun onResponse(call: Call<BatikResponse>, response: Response<BatikResponse>) {
                 if (response.isSuccessful) {
-                    listBatik.postValue(response.body()?.items)
-                    Log.d("ListBatik", response.body()?.items.toString())
+                    listBatik.postValue(response.body()?.data)
+                    Log.d("ListBatik", response.body().toString())
                     Log.d("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "SUCCESS")
                 }
             }
 
             override fun onFailure(call: Call<BatikResponse>, t: Throwable) {
                 Log.d("Gagal", t.message.toString())
-                Log.d("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", t.message.toString())
-                Log.d("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", t.message.toString())
             }
 
         })
     }
 
-    fun getGitHubUsers(): LiveData<ArrayList<Batik>> {
+    fun getBatik(): LiveData<ArrayList<Batik>> {
         Log.d("List Batik", listBatik.toString())
         return listBatik
     }

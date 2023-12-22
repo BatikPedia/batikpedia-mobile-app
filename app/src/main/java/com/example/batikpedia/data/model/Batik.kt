@@ -3,7 +3,6 @@ package com.example.batikpedia.data.model
 import com.google.gson.annotations.SerializedName
 
 data class Batik(
-
 	@field:SerializedName("province")
 	val province: String? = null,
 
@@ -17,5 +16,10 @@ data class Batik(
 	val id: String? = null,
 
 	@field:SerializedName("history")
-	val history: String? = null
+	val history: String? = null,
+
+	@field:SerializedName("photos")
+	val photos: List<String?>? = null
+
 )
+
