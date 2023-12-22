@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedTopLeftRightImageView"
+        tools:srcCompat="@drawable/batik_megamendung" />
+
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/boxConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_bottom_left_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <TextView
+            android:id="@+id/namaBatik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/boxConstraint"
+            app:layout_constraintHorizontal_bias="0.028"
+            app:layout_constraintStart_toStartOf="@+id/boxConstraint"
+            app:layout_constraintTop_toTopOf="@+id/boxConstraint"
+            tools:text="Parang" />
+
+        <TextView
+            android:id="@+id/asalBatik"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/boxConstraint"
+            app:layout_constraintEnd_toEndOf="@+id/boxConstraint"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/boxConstraint"
+            app:layout_constraintTop_toBottomOf="@+id/namaBatik"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Jawa Tengah" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
